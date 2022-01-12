@@ -105,7 +105,7 @@ async function createServiceRequest() {
             name: [{ given: ['Batch'], family: 'Test' }],
             birthDate: '2020-01-01',
             gender: 'male',
-            identifier: [{ system: 'https://example.com/', value: exampleMrn }]
+            identifier: [{ system: 'https://example.com/deidentified', value: exampleMrn }]
           }
         },
         // Next, create the service request.
@@ -122,10 +122,18 @@ async function createServiceRequest() {
             },
             code: {
               coding: [{
-                system: 'https://kit.com/tests',
-                code: 'KIT_SKU'
+                system: 'https://example.com/availableskus',
+                code: 'DEVICE_SKU'
               }]
-            }
+            },
+            orderDetail: [{
+              text : 'CUSTOMER_ORDERED',
+              coding : [
+                {
+                  system: 'https://example.com/logisticssummary',
+                  code: 'PRE_DISPATCH'
+                }
+            ]}]
           }
         }
       ]
