@@ -24,8 +24,6 @@ let accessToken = null;
  * Runs the example app.
  * 1) Authenticates.
  * 2) Creates a Patient and a ServiceRequest.
- * 3) Creates Observations and DiagnosticReport.
- * 4) Reads back the Observation and DiagnosticReport.
  */
 async function main() {
   await authenticate();
